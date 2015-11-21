@@ -46,5 +46,12 @@ end
  
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
+  movies_db = Movie.all.map(&:title)
+  movies_page = []
+  
+  page.all('table#movies tbody tr').each do |row|
+    movies_page << row.all('td')[0].text
+  end
+
+  expect(movies_page).to match_array(movies_db)
 end

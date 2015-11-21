@@ -22,9 +22,9 @@ Background: movies have been added to database
   And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
-  When I follow "Movie Title"
-  # your steps here
-
+  When I follow "title_header"
+  Then I should see "Aladdin" before "Amelie"
+  
 Scenario: sort movies in increasing order of release date
-  When I follow "Release Date"
-  # your steps here
+  When I follow "release_date_header"
+  Then I should see "When Harry Met Sally" before "Chicken Run"
